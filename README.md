@@ -11,9 +11,10 @@
 * Step by step solutions of gradients.
   * http://www.cs.huji.ac.il/~csip/tirgul3_derivatives.pdf
   
-### Deterimnant
+### Determinant
   * Tells us the size by which the [unit vectors](https://en.wikipedia.org/wiki/Unit_vector) will grow by i.e. be transformed by.
 ```
+   i j
   [1 0]
   [0 1]
 ```
@@ -27,6 +28,6 @@ That means
   [1 0]
   [0 1]
 
-will grow 6 times it's size.
+will grow 6 times it's size; the area will be 6 times the original size of the unit vectors.
 ```
  * If the determinant is zero, there is no inverse.
