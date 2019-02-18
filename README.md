@@ -13,8 +13,20 @@
   
 ### Deterimnant
   * Tells us the size by which the [unit vectors](https://en.wikipedia.org/wiki/Unit_vector) will grow by i.e. be transformed by.
-  A 2x2 unit vector begin as
 ```
   [1 0]
   [0 1]
 ```
+```
+[3 1]
+[0 2]
+
+^ has a derminant of 6 i.e. (3*2)-(1*0)
+That means 
+
+[1 0]
+[0 1]
+
+will grow 6 times it's size.
+```
+ * If the determinant is zero, there is no inverse.
