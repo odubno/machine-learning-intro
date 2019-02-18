@@ -13,6 +13,7 @@
   
 ### Determinant
   * Tells us the size by which the [unit vectors](https://en.wikipedia.org/wiki/Unit_vector) will grow by i.e. be transformed by.
+  * The determinant tells us the factor by which areas are stretch out by (increased by).
 ```
    i j
   [1 0]
