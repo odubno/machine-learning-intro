@@ -12,8 +12,10 @@
   * http://www.cs.huji.ac.il/~csip/tirgul3_derivatives.pdf
   
 ### Determinant
-  * Tells us the size by which the [unit vectors](https://en.wikipedia.org/wiki/Unit_vector) will grow by i.e. be transformed by.
-  * The determinant tells us the factor by which areas are stretch out by (increased by).
+  * Tells us the size by which the [unit vectors](https://en.wikipedia.org/wiki/Unit_vector) will scale or decrease by i.e. be transformed by.
+  * The determinant tells us the factor by which areas are stretch or shrunk by. 
+    * great than one, then the area is growing.
+    * less than one, then the area is shrinking.
 ```
    i j
   [1 0]
