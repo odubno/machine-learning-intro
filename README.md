@@ -12,7 +12,6 @@
   * http://www.cs.huji.ac.il/~csip/tirgul3_derivatives.pdf
   
 ### Deterimnant
-Tells us the size by which the unit vectors will be transformed. 
-```
-\langle f \rangle
-```
+  Tells us the size by which the [unit vectors](https://en.wikipedia.org/wiki/Unit_vector) will grow by i.e. be transformed by.
+  
+
