@@ -18,14 +18,14 @@
   [0 1]
 ```
 ```
-[3 1]
-[0 2]
+  [3 1]
+  [0 2]
 
 ^ has a derminant of 6 i.e. (3*2)-(1*0)
 That means 
 
-[1 0]
-[0 1]
+  [1 0]
+  [0 1]
 
 will grow 6 times it's size.
 ```
