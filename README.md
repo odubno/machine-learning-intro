@@ -12,6 +12,9 @@
   * http://www.cs.huji.ac.il/~csip/tirgul3_derivatives.pdf
   
 ### Deterimnant
-  Tells us the size by which the [unit vectors](https://en.wikipedia.org/wiki/Unit_vector) will grow by i.e. be transformed by.
-  
-
+  * Tells us the size by which the [unit vectors](https://en.wikipedia.org/wiki/Unit_vector) will grow by i.e. be transformed by.
+  A 2x2 unit vector begin as
+```
+  [1 0]
+  [0 1]
+```
