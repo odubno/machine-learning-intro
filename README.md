@@ -10,3 +10,9 @@
   * https://www.khanacademy.org/math/multivariable-calculus/multivariable-derivatives
 * Step by step solutions of gradients.
   * http://www.cs.huji.ac.il/~csip/tirgul3_derivatives.pdf
+  
+### Deterimnant
+Tells us the size by which the unit vectors will be transformed. 
+```
+\langle f \rangle
+```
