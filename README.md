@@ -34,3 +34,8 @@ That means
 will grow 6 times it's size; the area will be 6 times the original size of the unit vectors.
 ```
  * If the determinant is zero, there is no inverse.
+
+## Intergral Calculus
+
+* Math for Machine Learning
+  * http://users.umiacs.umd.edu/~hal/courses/2013S_ML/math4ml.pdf
