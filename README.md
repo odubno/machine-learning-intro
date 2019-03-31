@@ -39,3 +39,6 @@ will grow 6 times it's size; the area will be 6 times the original size of the u
 
 * Math for Machine Learning
   * http://users.umiacs.umd.edu/~hal/courses/2013S_ML/math4ml.pdf
+* Calc 3 (good course to catch you up to speed with Calculus)
+  * https://www.udemy.com/calculus-3
+  * ^ derivatives, integrals, linear algebra (dot and cross products) differentials (Laplace)
