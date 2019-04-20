@@ -42,3 +42,35 @@ will grow 6 times it's size; the area will be 6 times the original size of the u
 * Calc 3 (good course to catch you up to speed with Calculus)
   * https://www.udemy.com/calculus-3
   * ^ derivatives, integrals, linear algebra (dot and cross products) differentials (Laplace)
+
+## Kmeans
+K-means is the simplest and most fundamental clustering algorithm.
+
+Input: x<sub>1</sub>, . . . , x<sub>n</sub>, where x ∈ R<sup>d</sup>.
+
+Treats each x as a vector in R<sup>d</sup>
+
+Output: Vector c of cluster assignments, and K mean vectors µ.
+
+
+ - c = (c<sub>1</sub>, . . . , c<sub>n</sub>), c<sub>i</sub> ∈ {1, . . . , K}
+   - If c<sub>i</sub> = c<sub>j</sub> = k, then x<sub>i</sub> and x<sub>j</sub> are clustered together in cluster k.
+   - c is an integer that represents each cluster.
+ - µ = (µ<sub>1</sub>, . . . , µ<sub>K</sub>), µ<sub>k</sub> ∈ R<sup>d</sup> (same space as xi)
+   - Each µ<sub>k</sub> (called a centroid) is a set of k d-dimensional vectors that's part of some c.
+   - µ number of vectors for each cluster.
+   - µ<sub>k</dub> defines the cluster for the k's cluster.
+   
+The K-means objective function can be written as
+
+![kmeans_objective](images/kmeans_objective.png)
+ <sub>source: https://www.saedsayad.com/clustering_kmeans.htm</sub>
+#### Algorithm	
+	
+ 1. Clusters the data into k groups where k  is predefined.
+ 2. Select k points at random as cluster centers.
+ 3. Assign objects to their closest cluster center according to the Euclidean distance function.
+ 4. Calculate the centroid or mean of all objects in each cluster.
+ 5. Repeat steps 2, 3 and 4 until the same points are assigned to each cluster in consecutive rounds.
+ 
+ 
