@@ -1,5 +1,7 @@
 # Machine Learning
 
+A mix of class notes, online resources and hw assignments from the Machine Learning class at Columbia.
+
 ## Matrix Differentiation
 
 * Defining what matrix differentiation is.
