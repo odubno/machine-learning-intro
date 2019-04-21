@@ -2,6 +2,22 @@
 
 A mix of class notes, online resources and hw assignments from the Machine Learning class at Columbia.
 
+
+# Table of Contents
+  - [Online Resources](#online-resources)
+    - [Matrix Differentiation](#matrix-differentiation)
+    - [Determinant](#determinant)
+    - [Intergral Calculus](#intergral-calculus)
+  - [Unsupervised Models](#unsupervised-models)
+    - [Kmeans](#kmeans)
+      - [Algorithm](#algorithm)
+      - [Coordinate Descent](#coordinate-descent)
+    - [Maximum Likelihood using EM Algorithm](#maximum-likelihood-using-em-algorithm)
+    
+    
+# Online Resources
+
+
 ## Matrix Differentiation
 
 * Defining what matrix differentiation is.
@@ -44,6 +60,8 @@ will grow 6 times it's size; the area will be 6 times the original size of the u
 * Calc 3 (good course to catch you up to speed with Calculus)
   * https://www.udemy.com/calculus-3
   * ^ derivatives, integrals, linear algebra (dot and cross products) differentials (Laplace)
+
+# Unsupervised Models
 
 ## Kmeans
 K-means is the simplest and most fundamental clustering algorithm.
