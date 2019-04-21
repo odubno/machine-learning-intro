@@ -59,11 +59,11 @@ Output: Vector c of cluster assignments, and K mean vectors µ.
  - µ = (µ<sub>1</sub>, . . . , µ<sub>K</sub>), µ<sub>k</sub> ∈ R<sup>d</sup> (same space as xi)
    - Each µ<sub>k</sub> (called a centroid) is a set of k d-dimensional vectors that's part of some c.
    - µ number of vectors for each cluster.
-   - µ<sub>k</dub> defines the cluster for the k's cluster.
+   - µ<sub>k</sub> defines the cluster for the k's cluster.
    
 The K-means objective function can be written as
 
-![kmeans_objective](images/kmeans_objective.png)
+![kmeans_objective](images/kmeans_objective_func.png)
  <sub>source: https://www.saedsayad.com/clustering_kmeans.htm</sub>
 #### Algorithm	
 	
