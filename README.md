@@ -133,3 +133,7 @@ initializations. Then use the result with the lowest L.
 
 ## Maximum Likelihood using EM Algorithm
 Expectation/Maximization algorithm. Closely related to variational inference  
+
+ - probabilistic objective function
+ - discussed for least squares, linear regression (gradient method) and the bayes classifier. That model is nice,
+ because we could find the respective θ<sub>ML</sub> analytically by writing an equation and plugging in data to solve.
