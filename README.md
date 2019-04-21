@@ -67,10 +67,65 @@ The K-means objective function can be written as
  <sub>source: https://www.saedsayad.com/clustering_kmeans.htm</sub>
 #### Algorithm	
 	
- 1. Clusters the data into k groups where k  is predefined.
+We have a double sum, a sum over each data point. For every single data point, x<sub>i</sub>, there's an additional sum over each cluster µ<sub>k</sub>.
+Each i<sup>th</sup> data point will sum over k clusters. We'll determine the euclidean distance of each i<sup>th</sup> data point to the center of the cluster c i.e. centroid.
+ 
+This objective is not convex; can't find the optimal µ and c. There are many theories that say you can.
+All we could do is derive an algorithm for a local minimum.
+
+We can’t optimize the K-means objective function exactly by taking
+derivatives and setting to zero, so we use an iterative algorithm.
+
+Can't do everything at once with a single algorithm. The algorithm will require iteration to modify values of whatever that is you're trying to learn.
+ 
+##### Coordinate Descent
+ Split the parameters into two uknown sets µ and c. You could split them anyway you want.
+ We're going to split them into two sets µ and c clusters. We'll then observe that even though we can't
+ find the optimal value µ and c together, if we fix one, we could find the best value for the other one.
+ And if we fixed c, we'll be able to find the best µ conditioned on c.
+ 
+ We split the variables into two unknown sets µ and c. We can’t find their best values at the same time to minimize L. However, we will see that
+ - Fixing µ we can find the best c exactly.
+ - Fixing c we can find the best µ exactly.
+ 
+This optimization approach is called coordinate descent: Hold one set of
+parameters fixed, and optimize the other set. Then switch which set is fixed.
+
+ 
+ 1. Clusters the data into k groups where k is predefined.
  2. Select k points at random as cluster centers.
- 3. Assign objects to their closest cluster center according to the Euclidean distance function.
- 4. Calculate the centroid or mean of all objects in each cluster.
- 5. Repeat steps 2, 3 and 4 until the same points are assigned to each cluster in consecutive rounds.
+ 3. Assign closest x<sub>i</sub> data points to their closest cluster center according to the Euclidean distance function.
+    - Given µ, find the best value c<sub>i</sub> ∈ {1, . . . , K} for (x<sub>1</sub>, . . . , x<sub>i</sub>).
+ 4. Calculate the centroid or mean of all objects in each cluster. Out put the updated µ and c.
+    - Given c, find the best vector µ<sub>k</sub> ∈ R<sup>d</sup> for k = 1, . . . , K.
+ 5. Repeat steps 3 and 4 until the same points are assigned to each cluster in consecutive rounds.
  
- 
+
+There’s a circular way of thinking about why we need to iterate:
+
+    3. Given a particular µ, we may be able to find the best c, but once wechange c we can probably find a better µ.
+    4. Then find the best µ for the new-and-improved c found in #1, but now that we’ve changed µ, there is probably a better c.
+
+We have to iterate because the values of µ and c depend on each other.
+This happens very frequently in unsupervised models.
+
+This is not a convex problem. Each time a new µ is initialized, we'll get different results.
+
+![kmeans_objective](images/kmeans_clustering.png)
+
+Because there are only K options for each c<sub>i</sub>
+, there are no derivatives. Simply
+calculate all the possible values for c<sub>i</sub> and pick the best (smallest) one.
+
+The outline of why this converges is straightforward:
+1. Every update to c<sub>i</sub> or µ<sub>k</sub> decreases L compared to the previous value.
+2. Therefore, L is monotonically decreasing.
+3. L ≥ 0, so Step 3 converges to some point (but probably not to 0).
+
+When c stops changing, the algorithm has converged to a local optimal
+solution. This is a result of L not being convex.
+
+Non-convexity means that different initializations will give different results:
+ - Often the results will be similar in quality, but no guarantees.
+ - In practice, the algorithm can be run multiple times with different
+initializations. Then use the result with the lowest L.
