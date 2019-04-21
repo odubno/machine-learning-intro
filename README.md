@@ -78,8 +78,9 @@ derivatives and setting to zero, so we use an iterative algorithm.
 
 Can't do everything at once with a single algorithm. The algorithm will require iteration to modify values of whatever that is you're trying to learn.
  
-##### Coordinate Descent
- Split the parameters into two uknown sets µ and c. You could split them anyway you want.
+#### Coordinate Descent
+
+ Split the parameters into two unknown sets µ and c. You could split them anyway you want.
  We're going to split them into two sets µ and c clusters. We'll then observe that even though we can't
  find the optimal value µ and c together, if we fix one, we could find the best value for the other one.
  And if we fixed c, we'll be able to find the best µ conditioned on c.
@@ -129,3 +130,6 @@ Non-convexity means that different initializations will give different results:
  - Often the results will be similar in quality, but no guarantees.
  - In practice, the algorithm can be run multiple times with different
 initializations. Then use the result with the lowest L.
+
+## Maximum Likelihood using EM Algorithm
+Expectation/Maximization algorithm. Closely related to variational inference  
