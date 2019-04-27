@@ -167,7 +167,7 @@ Markov chain is a **discrete state space** with a **stochastic process** satisfy
 #### Discrete state space
  - A sequence of random variables X1, X2, ..., Xn.
  - A Markov chain has either discrete state space (set of possible values of the random variables) or discrete index set (often representing time).
- - State space is a countable set S of X<sub>i</sub> and be anything: letters, numbers, basketball scores or weather conditions. 
+ - State space is a countable set S of X<sub>i</sub> and cab be anything: letters, numbers, basketball scores or weather conditions. 
  - The state space is a matrix that will be an N x N matrix, such that entry (i, j) is the probability of transitioning from state i to state j.
 #### Stochastic process
  - The transition matrix must be a stochastic matrix, a matrix whose entries in each row must add up to exactly 1. 
@@ -187,6 +187,8 @@ So, the model is characterized by a state space, a transition matrix describing 
 
 
 <sub>The transition matrix represents the same information as in the dictionary, but in a more compact way. For this reason, the transition matrix is the standard way of representing Markov chains.</sub>
+
 <img src="https://cdn-images-1.medium.com/max/800/1*vPkAAZZW_hsS9KA_7GntbQ.png">
 
-Markov chains are important mathematical tools that effectively aid the simplification of predicting stochastic processes by viewing the future as independent of the past, given the present state of the process.
+
+> Markov chains are important mathematical tools that effectively aid the simplification of predicting stochastic processes by viewing the future as independent of the past, given the present state of the process.
