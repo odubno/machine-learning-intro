@@ -13,6 +13,7 @@ A mix of class notes, online resources and hw assignments from the Machine Learn
       - [Algorithm](#algorithm)
       - [Coordinate Descent](#coordinate-descent)
     - [Maximum Likelihood using EM Algorithm](#maximum-likelihood-using-em-algorithm)
+    - [Markov Chain](#markov-chain)
     
     
 # Online Resources
