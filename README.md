@@ -157,3 +157,35 @@ Expectation/Maximization algorithm. Closely related to variational inference
  - probabilistic objective function
  - discussed for least squares, linear regression (gradient method) and the bayes classifier. That model is nice,
  because we could find the respective θ<sub>ML</sub> analytically by writing an equation and plugging in data to solve.
+
+## Markov Chain
+
+Markov chain is a **discrete state space** with a **stochastic process** satisfying the **Markov property**.
+<sup>[Alessandro Molina](https://medium.com/@__amol__/markov-chains-with-python-1109663f3678)</sup>
+
+#### Discrete state space
+ - A sequence of random variables X1, X2, ..., Xn.
+ - A Markov chain has either discrete state space (set of possible values of the random variables) or discrete index set (often representing time).
+ - State space is a countable set S of X<sub>i</sub> and be anything: letters, numbers, basketball scores or weather conditions. 
+ - The state space is a matrix that will be an N x N matrix, such that entry (i, j) is the probability of transitioning from state i to state j.
+#### Stochastic process
+ - The transition matrix must be a stochastic matrix, a matrix whose entries in each row must add up to exactly 1. 
+ - Each row of the matrix represents its own probability distribution.
+ 
+#### Markov property
+ - The probability of moving to the next state depends only on the present state
+ - The distribution on the next position only depends on the current position.
+ - The knowledge of the previous state is all that is necessary to determine the probability distribution of the current state, satisfying the rule of conditional independence (or said other way: you only need to know the current state to determine the next state).
+ 
+ 
+So, the model is characterized by a state space, a transition matrix describing the probabilities of particular transitions, and an initial state across the state space, given in the initial distribution.
+<sup>[Sejal Jaiswal](https://www.datacamp.com/community/tutorials/markov-chains-python-tutorial)</sup>
+
+<sub>A simple Markov chain on the random variable, representing the random variable Weather = {Sunny, Rainy, Snowy} and showing the probability of the random variable switching to other states in the next time instance</sub>
+<img src="https://cdn-images-1.medium.com/max/800/1*udOn3pR6SqrKU37KujfdPg.png">
+
+
+<sub>The transition matrix represents the same information as in the dictionary, but in a more compact way. For this reason, the transition matrix is the standard way of representing Markov chains.</sub>
+<img src="https://cdn-images-1.medium.com/max/800/1*vPkAAZZW_hsS9KA_7GntbQ.png">
+
+Markov chains are important mathematical tools that effectively aid the simplification of predicting stochastic processes by viewing the future as independent of the past, given the present state of the process.

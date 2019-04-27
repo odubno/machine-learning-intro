@@ -9,6 +9,11 @@ from scipy.sparse.linalg import eigs
 
 
 def get_matrix(M_shape=767):
+    """ M is  transition matrix, or Markov matrix.
+    :param M_shape: (int)
+    :return:
+        a transition matrix describing the probabilities of particular transitions.
+    """
     # initialize matrix
     scores_file = 'hw4_data/CFB2018_scores.csv'
     M = np.zeros((M_shape, M_shape))
@@ -27,16 +32,19 @@ def get_matrix(M_shape=767):
         b_weight = b_points / total_points
 
         # define i and j indices
+        # entry (i, j) is the probability of transitioning from state i to state j
         i = a_index - 1
         j = b_index - 1
 
-        # map all the values
+        # team ranking; map all the values
         M[i][i] = a_wins + a_weight
         M[j][i] = a_wins + a_weight
         M[j][j] = b_wins + b_weight
         M[i][j] = b_wins + b_weight
 
-    # normalize
+    # normalize each row
+    # each row must add up to exactly 1 because each row represents its own probability distribution.
+    # count how many times a transition from i to j is observed and divide by the total number of transitions from i.
     for row_index in xrange(M_shape):
         M[row_index] = M[row_index] / np.sum(M[row_index])
 
@@ -44,6 +52,15 @@ def get_matrix(M_shape=767):
 
 
 def problem_1a(M, M_shape=767):
+    """
+    :param M:
+    :param M_shape:
+    :return:
+        Transitions only occur between teams that play each other.
+        Transitions happen from teams that lose to teams that win.
+        If Team A beats Team B, there should be a high probability of transitioning from B to A and small probability from A to B.
+        The strength of the transition is linked to the score of the game.
+    """
     w_t = []
     for t in [10, 100, 1000, 10000]:
         w = (1.0 / M_shape) * np.ones(M_shape)
@@ -58,8 +75,7 @@ def problem_1b(M, M_shape=767):
     w_t = []
     w = (1.0 / M_shape) * np.ones(M_shape)
     for i in xrange(10000):
-        # w = np.dot(w, M.T)
-        w = np.dot(M.T, w)
+        w = np.dot(w, M.T)
         w_t.append(w)
     data = get_eigen_vectors(M, w_t)
     plot_norms(data)
