@@ -192,3 +192,55 @@ So, the model is characterized by a state space, a transition matrix describing 
 
 
 > Markov chains are important mathematical tools that effectively aid the simplification of predicting stochastic processes by viewing the future as independent of the past, given the present state of the process.
+
+## Nonnegative Matrix Factorization
+
+
+![nonnegative-matrix-factorization](images/nmf.png)
+We use notation and think about the problem slightly differently from PMF 
+ - Data X has nonnegative entries. None missing, but likely many zeros.
+ - The learned factorization W and H also have nonnegative entries.
+ - The value X<sub>ij</sub> ≈ ∑<sub>k</sub>W<sub>ik</sub>H<sub>kj</sub>, but we won’t write this with vector notation
+
+#### What Problems can NMF solve?
+ - **Text data**:
+   - Word term frequencies
+   - X<sub>_ij</sub> contains the number of times word _i_ appears in document _j_.
+ - **Image data**:
+   - Face identification data sets.
+   - Put each vectorized N×M image of a face on a column of X.
+ - **Other discrete grouped data**:
+   - Quantize continuous sets of features using K-means. 
+   - X<sub>ij</sub> counts how many times group _j_ uses cluster _i_.
+   - For example: group = song, features = d×n spectral information matrix.
+
+#### Squared error objective algorithm 
+ - Multiplicative Update for ‖X−WH‖<sup>2</sup>
+   ![nonnegative-matrix-factorization-squared_error_objective](images/nmf_squared_error_objective.png)
+ - Randomly initialize H and W with nonnegative values.
+ - Iterate the following, first for all values in H, then all in W:
+   ![nonnegative-matrix-factorization-algorithm](images/nmf_alg.png)
+   
+##### Visual of the Multiplicative Update ‖X−WH‖<sup>2</sup>
+ - Use element-wise multiplication/division across three columns below.
+![nonnegative-matrix-factorization-visual](images/nmf_visual.png)
+ - Use matrix multiplication within each outlined box.
+
+##### Squared error objective in python
+```python
+H = (H * np.dot(W.T, X)) / (np.dot(W.T, W).dot(H) + err)
+W = (W * np.dot(X, H.T)) / (np.dot(W, H).dot(H.T) + err)
+```
+
+#### Divergence objective algorithm
+ - Multiplicative Update for D(X‖WH):
+   ![nonnegative-matrix-factorization-divergence-objective](images/nmf_divergence_objective.png)
+ - Randomly initialize H and W with nonnegative values.
+ - Iterate the following, first for all values in H, then all in W:
+   ![nonnegative-matrix-factorization-divergence-penalty](images/nmf_alg_divergence_penalty.png)
+
+##### Visual of the Multiplicative Update D(X‖WH)
+ - Visualizing the update for the divergence penalty is more complicated.
+ - Use the color-coded definition below.
+   ![nonnegative-matrix-factorization-divergence-visual](images/nmf_divergence_objective_visual.png)
+ - "Purple" is the data matrix “dot-divided” by the approximation of it.
