@@ -113,30 +113,25 @@ def problem_2b(vocab_file, W):
     # Read vocab
     vocab = get_vocab(vocab_file)
 
+    # create a table of 10 words with largest weight across 25 topics
     df = pd.DataFrame()
     for row in range(25):
         words = [vocab[i] for i in word_idx[row]]
         weights = np.round(weight_idx[row], decimals=4)
         df[row] = zip(words, weights)
-
     df.to_csv('q2b_topics.csv')
 
-    # Create 5 x 5 matrix of topics
-    mat_topics = []
-    topics = []
-    for row in range(25):
-        # organize the 25 topics into a 5 by 5 matrix
-        weights = list(weight_idx[row])
-        words = [vocab[i] for i in word_idx[row]]
-        topic = ','.join(['%s:%s' % (k, round(v, 4)) for k, v in zip(words, weights)])
-        topics.append(topic)
-
-        if len(topics) == 5:
-            # create 5 columns from the 25 topics
-            mat_topics.append(topics)
-            topics = []
-
-    return pd.DataFrame(np.array(mat_topics))
+    # create a 5 x 5 table of topics
+    start_i = 0
+    topics_matrix = np.zeros((5, 5), dtype='|S200')
+    for row_i, row in enumerate(topics_matrix):
+        for val_i, val in enumerate(row):
+            weights = list(weight_idx[start_i])
+            words = [vocab[i] for i in word_idx[start_i]]
+            topic = ','.join(['%s:%s' % (k, round(v, 4)) for k, v in zip(words, weights)])
+            topics_matrix[row_i][val_i] = topic
+            start_i += 1
+    return pd.DataFrame(topics_matrix)
 
 
 if __name__ == '__main__':
