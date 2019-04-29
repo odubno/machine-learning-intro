@@ -53,8 +53,10 @@ def get_matrix(M_shape=767):
 
 def problem_1a(M, M_shape=767):
     """
-    :param M:
-    :param M_shape:
+        Rank the teams by sorting in decreasing value according to this vector.
+        List the top 25 team names and their corresponding values in w_t for t = 10, 100, 1000, 10000.
+    :param M: (numpy.ndarray)
+    :param M_shape: (int)
     :return:
         Transitions only occur between teams that play each other.
         Transitions happen from teams that lose to teams that win.
@@ -72,6 +74,10 @@ def problem_1a(M, M_shape=767):
 
 
 def problem_1b(M, M_shape=767):
+    """ Plot |w_t - w_inf|  as a function of t for t=1,...,10000
+    :param M: (numpy.ndarray)
+    :param M_shape: (int)
+\    """
     w_t = []
     w = (1.0 / M_shape) * np.ones(M_shape)
     for i in xrange(10000):
