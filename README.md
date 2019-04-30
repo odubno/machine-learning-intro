@@ -219,11 +219,11 @@ We use notation and think about the problem slightly differently from PMF
    - X<sub>ij</sub> counts how many times group _j_ uses cluster _i_.
    - For example: group = song, features = d×n spectral information matrix.
 
-   #### Squared error objective algorithm 
-   - Multiplicative Update for ‖X−WH‖<sup>2</sup>
+#### Squared error objective algorithm 
+ - Multiplicative Update for ‖X−WH‖<sup>2</sup>
    ![nonnegative-matrix-factorization-squared_error_objective](images/nmf_squared_error_objective.png)
-   - Randomly initialize H and W with nonnegative values.
-   - Iterate the following, first for all values in H, then all in W:
+ - Randomly initialize H and W with nonnegative values.
+ - Iterate the following, first for all values in H, then all in W:
    ![nonnegative-matrix-factorization-algorithm](images/nmf_alg.png)
    
    ##### Visual of the Multiplicative Update ‖X−WH‖<sup>2</sup>
