@@ -195,6 +195,10 @@ So, the model is characterized by a state space, a transition matrix describing 
 > Markov chains are important mathematical tools that effectively aid the simplification of predicting stochastic processes by viewing the future as independent of the past, given the present state of the process.
 
 ## Nonnegative Matrix Factorization
+NMF is a technique that splits your data up into a set of individual signals and weights to apply to those signals to recreate your original data. 
+It works best when your data is truly a sum of individual signals, but it will still work to some degree when the data isn’t quite like that. 
+There are some caveats when it comes to applying NMF; the data needs to be positive, and laid out in an appropriate matrix, but what is the relationship between the number of observations/columns in the data matrix and the number of individual signals you can decompose the data into?. 
+<sup>http://www.billconnelly.net/?p=534</sup>
 
 
 ![nonnegative-matrix-factorization](images/nmf.png)
