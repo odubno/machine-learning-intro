@@ -3,8 +3,6 @@ import numpy as np
 import matplotlib
 matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
-# import numpy.linalg as nplg
-# import scipy.sparse.linalg
 
 
 def get_nyt_data(fn):
@@ -46,7 +44,7 @@ def row_to_col_matrix(row_matrix):
 
 def train(X):
     """
-    :param X:
+    :param X: (numpy.ndarray) word frequency matrix X
     :return:
         Factorize matrix X into a rank-K approximation WH:
             - X is an NxM matrix.
@@ -76,11 +74,21 @@ def train(X):
 
 
 def problem_2a(objectives):
+    """
+        Implement and run the NMF algorithm on this data using the divergence penalty.
+        Set the rank to 25 and run for 100 iterations.
+        This corresponds to learning 25 topics.
+        Plot the objective as a function of iteration.
+    :param objectives:
+    :return:
+    """
     plt.figure()
     plt.title("Divergence Penalty with 100 iterations")
     plt.xlabel("Iteration")
     plt.ylabel("Penalty")
     plt.plot(range(100), objectives)
+    plt.tight_layout()
+    plt.savefig('hw4_q2a.png')
     plt.show()
 
 
@@ -128,10 +136,11 @@ def problem_2b(vocab_file, W):
         for val_i, val in enumerate(row):
             weights = list(weight_idx[start_i])
             words = [vocab[i] for i in word_idx[start_i]]
-            topic = ','.join(['%s:%s' % (k, round(v, 4)) for k, v in zip(words, weights)])
+            topic = ', '.join(['%s:%s' % (k, round(v, 4)) for k, v in zip(words, weights)])
             topics_matrix[row_i][val_i] = topic
             start_i += 1
-    return pd.DataFrame(topics_matrix)
+    df = pd.DataFrame(topics_matrix)
+    df.to_csv('q2b_topics_matrix.csv')
 
 
 if __name__ == '__main__':
