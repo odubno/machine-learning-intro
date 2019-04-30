@@ -14,6 +14,7 @@ A mix of class notes, online resources and hw assignments from the Machine Learn
       - [Coordinate Descent](#coordinate-descent)
     - [Maximum Likelihood using EM Algorithm](#maximum-likelihood-using-em-algorithm)
     - [Markov Chain](#markov-chain)
+    - [Nonnegative Matrix Factorization](#nonnegative_matrix_factorization)
     
     
 # Online Resources
