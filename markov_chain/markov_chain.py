@@ -113,7 +113,7 @@ def get_top_teams(w_t):
         top_25_team_index = np.argsort(w_t[t])[::-1][:25]
         top_25_teams = [teams_map[i] for i in top_25_team_index]
         top_25_weights = w_t[t][top_25_team_index]
-        df[t_w_map[t]] = zip(top_25_teams, top_25_weights)
+        df[t_w_map[t]] = zip(top_25_teams, np.round(top_25_weights, decimals=4))
     return df
 
 
